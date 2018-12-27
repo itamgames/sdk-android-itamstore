@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="40dp"
+    android:background="#f6f2fa">
+
+    <Button
+        android:id="@+id/CATE_ROW_BTN"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"/>
+
+    <TextView
+        android:id="@+id/CATE_ROW_TITLE_TEXT"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:gravity="left|center_vertical"
+        android:text="@string/menu_trade_title_text"
+        android:textColor="#471b6b"
+        android:textSize="10sp"
+        android:textStyle="normal"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff" />
+
+</RelativeLayout>

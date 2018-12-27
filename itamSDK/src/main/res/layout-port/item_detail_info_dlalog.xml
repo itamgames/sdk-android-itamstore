@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/ITEM_INFO_DLG_LL"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/item_bg_001" >
+
+        <Button
+            android:id="@+id/ITEM_INFO_DLG_CLOSE_BTN"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/search_close_btn"/>
+
+        <ImageView
+            android:id="@+id/ITEM_INFO_DLG_THUMB_IMG"
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="28dp"
+            android:background="@drawable/game_itam_02_img"/>
+
+        <TextView
+            android:id="@+id/ITEM_INFO_DLG_INFO_TITLE_TEXT"
+            android:layout_toRightOf="@+id/ITEM_INFO_DLG_THUMB_IMG"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="15dp"
+            android:gravity="left|center_horizontal"
+            android:text="유현의 쌍검"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#230f3b"/>
+
+        <TextView
+            android:id="@+id/ITEM_INFO_DLG_INFO_KIND_TEXT"
+            android:layout_toRightOf="@+id/ITEM_INFO_DLG_THUMB_IMG"
+            android:layout_below="@+id/ITEM_INFO_DLG_INFO_TITLE_TEXT"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginLeft="15dp"
+            android:gravity="left|center_horizontal"
+            android:text="무기"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="#471b6b"/>
+
+        <TextView
+            android:id="@+id/ITEM_INFO_DLG_INFO_STAT_TEXT"
+            android:layout_width="153dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/ITEM_INFO_DLG_INFO_KIND_TEXT"
+            android:layout_toRightOf="@+id/ITEM_INFO_DLG_THUMB_IMG"
+            android:gravity="left|top"
+            android:text="대장장이가 전설 아이템 불의 구슬을 만들때 사용합니다. "
+            android:textColor="#999999"
+            android:textSize="11sp"
+            android:textStyle="normal" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_below="@+id/ITEM_INFO_DLG_THUMB_IMG"
+            android:background="@drawable/graph_rect_light_blue">
+            <LinearLayout
+                android:layout_width="68dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp">
+                    <TextView
+                        android:id="@+id/ITEM_INFO_DLG_INFO_GUILD_TITLE_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:textColor="#999999"
+                        android:textSize="11sp"
+                        android:text="@string/games_item_type_title_text"/>
+                    <TextView
+                        android:id="@+id/ITEM_INFO_DLG_INFO_GUILD_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@+id/ITEM_INFO_DLG_INFO_GUILD_TITLE_TEXT"
+                        android:layout_height="18dp"
+                        android:textColor="#333333"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:text="S-" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="5dp" >
+                    <TextView
+                        android:id="@+id/ITEM_INFO_DLG_INFO_LEVEL_TITLE_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:textColor="#999999"
+                        android:textSize="11sp"
+                        android:text="@string/games_item_lvl_title_text" />
+                    <TextView
+                        android:id="@+id/ITEM_INFO_DLG_INFO_LEVEL_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@+id/ITEM_INFO_DLG_INFO_LEVEL_TITLE_TEXT"
+                        android:layout_height="18dp"
+                        android:textColor="#333333"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:text="19" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/ITEM_INFO_DLG_INFO_CLASS_TITLE_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:textColor="#999999"
+                        android:textSize="11sp"
+                        android:text="@string/games_item_class_title_text"/>
+                    <TextView
+                        android:id="@+id/ITEM_INFO_DLG_INFO_CLASS_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@+id/ITEM_INFO_DLG_INFO_CLASS_TITLE_TEXT"
+                        android:layout_height="18dp"
+                        android:textColor="#333333"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:text="마검사" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginBottom="35dp"
+            android:layout_alignParentBottom="true">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/ITEM_INFO_DLG_SELL_BTN"
+                android:background="@drawable/radius_white_box">
+                <ImageView
+                    android:layout_width="31dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/item_token_label_img"  />
+
+                <EditText
+                    android:id="@+id/ITEM_INFO_DLG_TOKEN_EDIT"
+                    android:layout_width="184dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_vertical|right"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#220f3b"
+                    android:hint="3.00000"
+                    android:background="#00ffffff"/>
+
+            </RelativeLayout>
+            <Button
+                android:id="@+id/ITEM_INFO_DLG_SELL_BTN"
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="25dp"
+                android:text="@string/item_detile_dlg_sell_text"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:background="@drawable/graph_rect_magenta"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

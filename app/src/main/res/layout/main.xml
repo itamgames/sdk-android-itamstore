@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/MAIN_TEXT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:textSize="20dp"/>
+        <Button
+            android:id="@+id/TESTGAME_LOGIN_BTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="itamgames로 로그인"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/TEST_STORE_BTN"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="게임 상점"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/TEST_FILE_BTN"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="file open"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/TEST_OPENSDK_BTN"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="경매장 입장"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/TEST_REQUEST_BTN"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sword +1"
+            android:visibility="gone" />
+
+
+        <Button
+            android:id="@+id/TEST_DOWNLOAD_BTN"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="300dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sword +1"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/LOADING_IMG"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="400dp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/avd_downloading_begin"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</LinearLayout>

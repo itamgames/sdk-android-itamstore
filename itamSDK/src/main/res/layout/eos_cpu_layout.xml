@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:orientation="horizontal"
+        android:background="@drawable/ground_wallet_rect_purple">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:id="@+id/EOS_STAKE_CPU_TITLE_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:gravity="left"
+                    android:text="CPU"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/EOS_CPU_USE_PERSENT_TEXT"
+                    android:layout_toRightOf="@+id/EOS_STAKE_CPU_TITLE_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left|center_vertical"
+                    android:text="(15% 사용중)"
+                    android:textColor="#80ffffff"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/progress_back_purple">
+
+                <ProgressBar
+                    android:id="@+id/EOS_CPU_USE_BAR_IMG"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:progressDrawable="@drawable/gradinet_progress_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:max="100"
+                    android:progress="50"/>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/EOS_CPU_USE_MS_COUNT_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left"
+                    android:text="216.221 ms"
+                    android:textColor="#999999"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left"
+                    android:text=" / "
+                    android:textColor="#999999"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/EOS_CPU_USE_SEC_COUNT_TEXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:gravity="left"
+                    android:text="1.9610 sec (15.0 EOS)"
+                    android:textColor="#999999"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:id="@+id/EOS_BANDWIDTH_TITLE_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:gravity="left"
+                    android:text="Bandwidth"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/EOS_BANDWIDTH_USE_PERSENT_TEXT"
+                    android:layout_toRightOf="@+id/EOS_BANDWIDTH_TITLE_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="left|center_vertical"
+                    android:text="(15% 사용중)"
+                    android:textColor="#80ffffff"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/progress_back_purple">
+
+                <ProgressBar
+                    android:id="@+id/EOS_BANDWIDTH_USE_BAR_IMG"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:progressDrawable="@drawable/gradinet_progress_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:max="100"
+                    android:progress="0"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp" >
+
+                <TextView
+                    android:id="@+id/EOS_BANDWIDTH_USE_KB_COUNT_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left"
+                    android:text="3.1601 KB"
+                    android:textColor="#999999"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left"
+                    android:text=" / "
+                    android:textColor="#999999"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/EOS_BANDWIDTH_USE_EOS_COUNT_TEXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:gravity="left"
+                    android:text="9.2958 KB (0.5 EOS)"
+                    android:textColor="#999999"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp" >
+
+        <Button
+            android:id="@+id/EOS_CPU_STAKE_BTN"
+            android:layout_width="153dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/graph_rect_deep_purple"
+            android:text="Stake"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/EOS_CPU_UNSTAKE_BTN"
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/graph_rect_deep_purple"
+            android:text="Unstake"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+</LinearLayout>

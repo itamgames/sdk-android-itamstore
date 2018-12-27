@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/ITEM_DLG_TRANSACTION_LL"
+        android:layout_width="300dp"
+        android:layout_height="212dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/graph_rect_white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="13dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+            android:text="@string/transaction_id_text"
+            android:textColor="#999999"
+            android:textSize="11sp"
+            android:textStyle="normal" />
+
+        <RelativeLayout
+            android:layout_width="260dp"
+            android:layout_height="93dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/radius_white_box">
+            <TextView
+                android:id="@+id/TRANSACTION_DLG_TEXT"
+                android:layout_width="230dp"
+                android:layout_height="51dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="12dp"
+                android:gravity="left|top"
+                android:text="0d2168989be1d1a4ea7b483cd7b0e5ec7e3bf8a702473a3bfdb8b1f172074603"
+                android:textColor="#230f3b"
+                android:textSize="14sp"
+                android:textStyle="normal"  />
+
+            <TextView
+                android:id="@+id/TRANSACTION_DLG_COPY_TEXT"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="42dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="35dp"
+                android:layout_height="15dp"
+                android:textColor="#999999"
+                android:text="copy"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/TRANSACTION_DLG_VIEW_TEXT"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="7dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="35dp"
+                android:layout_height="15dp"
+                android:textColor="#999999"
+                android:text="view"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_alignParentRight="true" />
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/TRANSACTIONID_DLG_CLOSE_BTN"
+            android:layout_marginBottom="25dp"
+            android:layout_width="85dp"
+            android:layout_height="30dp"
+            android:background="@drawable/graph_rect_deep_purple"
+            android:textColor="#ffffff"
+            android:text="@string/button_close_text"
+            android:textAllCaps="false"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null">
+
+    <LinearLayout
+        android:id="@+id/EOS_STAKE_INPUT_LL"
+        android:layout_width="match_parent"
+        android:layout_height="521dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@drawable/round_rect_white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/eos_stake_recv_account_text"
+                android:textColor="#6035bd"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/round_gray_box">
+
+                <EditText
+                    android:id="@+id/EOS_STAKE_INPUT_RECV_ACCOUNT_EDIT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:background="#00ffffff"
+                    android:gravity="right|center_vertical"
+                    android:hint="받는 계정"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:singleLine="true"
+                    android:textColor="#230f3b"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="84dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="15dp"
+                        android:text="CPU"
+                        android:textColor="#6035bd"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="330dp"
+                        android:layout_height="46dp"
+                        android:layout_marginTop="38dp"
+                        android:background="@drawable/round_gray_box">
+
+                        <ImageView
+                            android:layout_width="31dp"
+                            android:layout_height="15dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"
+                            android:background="@drawable/eos_label" />
+
+
+                        <EditText
+                            android:id="@+id/EOS_STAKE_INPUT_CPU_EDIT"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="#00ffffff"
+                            android:gravity="right|center_vertical"
+                            android:hint="0.000"
+                            android:numeric="decimal"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="#230f3b"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="84dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Bandwidth"
+                        android:textColor="#6035bd"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="330dp"
+                        android:layout_height="46dp"
+                        android:layout_marginTop="38dp"
+                        android:background="@drawable/round_gray_box">
+
+                        <ImageView
+                            android:layout_width="31dp"
+                            android:layout_height="15dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"
+                            android:background="@drawable/eos_label" />
+
+
+                        <EditText
+                            android:id="@+id/EOS_STAKE_INPUT_BANDWIDTH_EDIT"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="#00ffffff"
+                            android:gravity="right|center_vertical"
+                            android:hint="0.000"
+                            android:numeric="decimal"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textColor="#230f3b"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="17dp"
+                android:layout_marginTop="9dp">
+
+                <TextView
+                    android:id="@+id/EOS_STAKE_INPUT_SUM_TEXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="2,930.0010 - 3.0000 = 2,927.0010"
+                    android:textColor="#999999"
+                    android:textSize="11sp"
+                    android:textStyle="normal" />
+
+            </RelativeLayout>
+
+            <RadioGroup
+                android:id="@+id/EOS_STAKE_RADIO_GROUP"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/EOS_STAKE_DELEGATE_BTN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:checked="true"
+                    android:text="  Delegate"
+                    android:button="@drawable/resource_radio_img"
+                    android:textColor="#33230a"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+
+                <RadioButton
+                    android:id="@+id/EOS_STAKE_TRANSFER_BTN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="39dp"
+                    android:text="  Transfer"
+                    android:button="@drawable/resource_radio_img"
+                    android:textColor="#33230a"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+
+            </RadioGroup>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="21dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/EOS_STAKE_OPT_ACCEPT_BTN"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/graph_rect_deep_purple" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/eos_stake_cpu_opt_text"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/EOS_STAKE_OPT_TEXT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/eos_stake_cpu_dele_text"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

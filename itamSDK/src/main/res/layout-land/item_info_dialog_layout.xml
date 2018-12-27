@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/TRADE_SHOP_ITEM_DLG_LL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:background="@drawable/shop_item_bg" >
+
+        <Button
+            android:id="@+id/TRADE_SHOP_ITEM_DLG_CLOSE_BTN"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/search_close_btn"/>
+
+        <RelativeLayout
+            android:id="@+id/TRAD_ITEM_IMG_INFO_LL"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="25dp">
+
+            <ImageView
+                android:id="@+id/TRADE_SHOP_ITEM_DLG_LABEL_IMG"
+                android:layout_width="37dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shop_label_back_img" />
+
+            <ImageView
+                android:id="@+id/TRADE_SHOP_ITEM_DLG_THUMB_IMG"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
+                android:background="@drawable/game_itam_01_img" />
+
+            <TextView
+                android:id="@+id/TRADE_SHOP_ITEM_DLG_INFO_TITLE_TEXT"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_DLG_THUMB_IMG"
+                android:gravity="left|center_vertical"
+                android:text="유현의 쌍검"
+                android:textColor="#230f3b"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TRADE_SHOP_ITEM_DLG_INFO_KIND_TEXT"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_below="@+id/TRADE_SHOP_ITEM_DLG_INFO_TITLE_TEXT"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_DLG_THUMB_IMG"
+                android:gravity="center_vertical|left"
+                android:text="무기"
+                android:textColor="#230f3b"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TRADE_SHOP_ITEM_DLG_INFO_STAT_TEXT"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:layout_below="@+id/TRADE_SHOP_ITEM_DLG_INFO_KIND_TEXT"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_DLG_THUMB_IMG"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|left"
+                android:maxLines="3"
+                android:text="대장장이가 전설 아이템 불의 구슬을 만들때 사용합니다."
+                android:textColor="#999999"
+                android:textSize="11sp"
+                android:textStyle="normal" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ITEM_STATE_LL"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:layout_below="@+id/TRAD_ITEM_IMG_INFO_LL"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/graph_rect_light_blue">
+
+            <LinearLayout
+                android:layout_width="68dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp">
+
+                    <TextView
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_INFO_GUILD_TITLE_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:text="@string/games_item_type_title_text"
+                        android:textColor="#999999"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/ITEM_INFO_DLG_INFO_GUILD_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_DLG_INFO_GUILD_TITLE_TEXT"
+                        android:text="S-"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_INFO_LEVEL_TITLE_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:text="@string/games_item_lvl_title_text"
+                        android:textColor="#999999"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_INFO_LEVEL_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_DLG_INFO_LEVEL_TITLE_TEXT"
+                        android:text="19"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_INFO_CLASS_TITLE_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:text="@string/games_item_class_title_text"
+                        android:textColor="#999999"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_INFO_CLASS_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_DLG_INFO_CLASS_TITLE_TEXT"
+                        android:text="마검사"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/trade_item_dlg_drop_text"
+                    android:textColor="#999999"
+                    android:textSize="10sp" />
+
+                <ImageView
+                    android:id="@+id/TRADE_SHOP_ITEM_DLG_MON_01_IMG"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/trade_shop_sample_01_img" />
+
+                <ImageView
+                    android:id="@+id/TRADE_SHOP_ITEM_DLG_MON_02_IMG"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="37dp"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/trade_shop_sample_02_img" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/ITEM_STATE_LL"
+            android:layout_width="match_parent"
+            android:layout_height="86dp" >
+            <RelativeLayout
+                android:id="@+id/ITEM_BUY_LL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+                <RelativeLayout
+                    android:id="@+id/ITEM_BUY_BOTTOM_LL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_centerHorizontal="true">
+                    <RelativeLayout
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_TOKEN_LL"
+                        android:layout_width="151dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/graph_rect_purple_left">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="7dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"
+                            android:background="@drawable/white_itam_label_img"  />
+
+                        <TextView
+                            android:id="@+id/TRADE_SHOP_ITEM_DLG_TOKEN_TEXT"
+                            android:layout_width="80dp"
+                            android:layout_height="40dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="44dp"
+                            android:gravity="center_vertical|left"
+                            android:text="3.0000"
+                            android:textColor="#ffffff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_BUY_BTN"
+                        android:layout_width="53dp"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_DLG_TOKEN_LL"
+                        android:background="@drawable/graph_rect_yellow_right"
+                        android:text="@string/trade_item_dlg_buy_text"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_below="@+id/ITEM_BUY_BOTTOM_LL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_centerHorizontal="true" >
+                    <TextView
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_SELL_USER_TITLE_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:textSize="10sp"
+                        android:textStyle="normal"
+                        android:textColor="#4d4d4d"
+                        android:text="@string/trade_item_dlg_sell_user_text"/>
+
+                    <TextView
+                        android:id="@+id/TRADE_SHOP_ITEM_DLG_SELL_USER_TEXT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_DLG_SELL_USER_TITLE_TEXT"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="left|center_vertical"
+                        android:text="yoeosthe891"
+                        android:textColor="#4d4d4d"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ITEM_BUY_FIN_LL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/item_buydlg_input_pass_text"
+                    android:textColor="#999999"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="31dp">
+
+                    <RelativeLayout
+                        android:layout_width="240dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/round_edit_gray_box">
+
+                        <EditText
+                            android:id="@+id/ITEM_BUY_FIN_EDIT"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:background="#00ffffff"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:textColor="#230f3b"
+                            android:textSize="12sp" />
+
+                    </RelativeLayout>
+                    <Button
+                        android:id="@+id/ITEM_BUY_FIN_ACCEPT_BTN"
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
+                        android:background="@drawable/round_rect_yellow_btn"
+                        android:text="@string/item_buydlg_pass_btn"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ITEM_BUY_FINGER_LL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="47dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="37dp"
+                        android:layout_height="47dp" >
+
+                        <ImageView
+                            android:id="@+id/ITEM_BUY_FINGER_BACK_IMG"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/finger_print_back_img" />
+
+                        <ImageView
+                            android:id="@+id/ITEM_BUY_FINGER_FRONT_IMG"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone"
+                            android:background="@drawable/finger_print_img"/>
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/item_buydlg_finger_text"
+                        android:textColor="#999999"
+                        android:textSize="10sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

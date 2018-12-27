@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null">
+
+    <LinearLayout
+        android:id="@+id/EOS_UNSTAKE_INPUT_LL"
+        android:layout_width="match_parent"
+        android:layout_height="521dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@drawable/round_rect_white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="200dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#6035bd"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/eos_unstake_recv_account_text" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/round_gray_box">
+
+                <EditText
+                    android:id="@+id/EOS_UNSTAKE_INPUT_RECV_ACCOUNT_EDIT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="#230f3b"
+                    android:textSize="12sp"
+                    android:hint="받는 계정"
+                    android:singleLine="true"
+                    android:gravity="right|center_vertical"
+                    android:layout_centerVertical="true"
+                    android:background="#00ffffff"/>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:layout_width="84dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="25dp"
+                        android:textColor="#6035bd"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:text="CPU" />
+
+                    <RelativeLayout
+                        android:layout_width="330dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="50dp"
+                        android:background="@drawable/round_gray_box">
+                        <ImageView
+                            android:layout_width="31dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/eos_label"/>
+
+
+                        <EditText
+                            android:id="@+id/EOS_UNSTAKE_INPUT_CPU_EDIT"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:paddingRight="15dp"
+                            android:textColor="#230f3b"
+                            android:textSize="14sp"
+                            android:hint="0.000"
+                            android:numeric="decimal"
+                            android:singleLine="true"
+                            android:gravity="right|center_vertical"
+                            android:layout_centerVertical="true"
+                            android:background="#00ffffff"/>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"  >
+
+                    <TextView
+                        android:layout_width="84dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="25dp"
+                        android:textColor="#6035bd"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:text="Bandwidth" />
+
+                    <RelativeLayout
+                        android:layout_width="330dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="50dp"
+                        android:background="@drawable/round_gray_box">
+                        <ImageView
+                            android:layout_width="31dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/eos_label"/>
+
+
+                        <EditText
+                            android:id="@+id/EOS_UNSTAKE_INPUT_BANDWIDTH_EDIT"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:paddingRight="15dp"
+                            android:textColor="#230f3b"
+                            android:textSize="14sp"
+                            android:hint="0.000"
+                            android:numeric="decimal"
+                            android:singleLine="true"
+                            android:gravity="right|center_vertical"
+                            android:layout_centerVertical="true"
+                            android:background="#00ffffff"/>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+    
+                
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/EOS_UNSTAKE_OPT_ACCEPT_BTN"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="30dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/eos_ubstake_cpu_trans_text"
+                android:background="@drawable/graph_rect_deep_purple"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

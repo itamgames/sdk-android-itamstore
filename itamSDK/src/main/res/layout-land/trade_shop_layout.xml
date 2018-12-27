@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="20dp">
+
+            <ImageView
+                android:id="@+id/TRADE_SHOP_ITAM_LABEL_IMG"
+                android:layout_width="24dp"
+                android:layout_height="7dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/itam_icon_img"/>
+
+            <TextView
+                android:id="@+id/TRADE_SHOP_ITAM_COUNT_TEXT"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/TRADE_SHOP_ITAM_LABEL_IMG"
+                android:gravity="left|center_vertical"
+                android:text="0.000"
+                android:textColor="#230f3b"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="160dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/search_round_gray_box">
+
+                <EditText
+                    android:id="@+id/ITEM_KEYWORD_SEARCH_EDIT"
+                    android:layout_width="123dp"
+                    android:layout_height="18dp"
+                    android:textColor="#230f3b"
+                    android:textSize="12sp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="#00ffffff"/>
+
+                <Button
+                    android:id="@+id/ITEM_KEYWORD_SEARCH_BTN"
+                    android:layout_width="37dp"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/category_search_img"/>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f2f2f2" />
+
+         <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp" >
+             <ListView
+                 android:id="@+id/TRADE_SHOP_ITEM_LIST"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginTop="10dp"
+                 android:divider="@null"
+                 android:dividerHeight="0dp"
+                 android:scrollbars="none"  >
+
+             </ListView>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

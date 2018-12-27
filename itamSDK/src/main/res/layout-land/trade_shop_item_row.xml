@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/TRADE_SHOP_ITEM_ROW_LL"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#f2f2f2" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f7f7f7" >
+            <ImageView
+                android:id="@+id/TRADE_SHOP_ITEM_THUMB_IMG"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/game_itam_00_img"/>
+
+
+            <LinearLayout
+                android:id="@+id/TRADE_SHOP_ITEM_TITLE_LL"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_THUMB_IMG"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:id="@+id/TRADE_SHOP_ITEM_TITLE_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_horizontal"
+                    android:text="하일리아의 약초"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#230f3b"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text=" / "
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:textColor="#e5e5e5"/>
+
+                <TextView
+                    android:id="@+id/TRADE_SHOP_ITEM_KIND_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text="퀘스트 아이템"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#471b6b"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_THUMB_IMG"
+                android:layout_below="@+id/TRADE_SHOP_ITEM_TITLE_LL"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text="@string/games_item_type_title_text"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:textColor="#999999"/>
+
+                <TextView
+                    android:id="@+id/TRADE_SHOP_ITEM_STAT_TYPE_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text="S-"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#4d4d4d"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text=" / "
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:textColor="#e5e5e5"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text="@string/games_item_lvl_title_text"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:textColor="#999999"/>
+
+                <TextView
+                    android:id="@+id/TRADE_SHOP_ITEM_STAT_LVL_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text="19"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#4d4d4d"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text=" / "
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:textColor="#e5e5e5"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text="@string/games_item_class_title_text"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:textColor="#999999"/>
+
+                <TextView
+                    android:id="@+id/TRADE_SHOP_ITEM_CLASS_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:gravity="left|center_horizontal"
+                    android:text="모두"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#4d4d4d"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/TRADE_SHOP_ITAM_LABEL_IMG"
+                android:layout_toRightOf="@+id/TRADE_SHOP_ITEM_THUMB_IMG"
+                android:layout_width="31dp"
+                android:layout_height="15dp"
+                android:layout_marginBottom="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/item_token_label_img"/>
+
+            <TextView
+                android:id="@+id/TRADE_SHOP_ITAM_PRICE_TEXT"
+                android:layout_toRightOf="@+id/TRADE_SHOP_ITAM_LABEL_IMG"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:gravity="left|center_horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="19dp"
+                android:layout_alignParentBottom="true"
+                android:text="0.9900"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#230f3b"/>
+
+
+            <ImageView
+                android:id="@+id/TRADE_SHOP_ITEM_LABEL_IMG"
+                android:layout_width="37dp"
+                android:layout_height="16dp"
+                android:layout_marginBottom="19dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/shop_label_back_img"/>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>

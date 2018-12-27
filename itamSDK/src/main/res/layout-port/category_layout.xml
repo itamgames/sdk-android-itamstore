@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="match_parent" >
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="#f6f2fa">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="left|center_vertical"
+            android:text="Category"
+            android:textColor="#4d4d4d"
+            android:textSize="10sp"
+            android:textStyle="normal"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff" />
+
+
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/CATE_LIST"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:scrollbars="none"
+        android:background="#f6f2fa">
+    </ListView>
+    <LinearLayout
+        android:id="@+id/CATE_FILTER_LL"
+        android:layout_marginTop="280dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@drawable/half_round_rect_purple" >
+        <RelativeLayout
+            android:id="@+id/FILTER_TOP_LL"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <ImageButton
+                android:id="@+id/CATE_FILTER_BTN"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@null"/>
+            <TextView
+                android:id="@+id/CATE_FILTER_TITLE_TEXT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="12dp"
+                android:layout_centerVertical="true"
+                android:text="Filter"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:textStyle="bold"/>
+            <ImageView
+                android:id="@+id/FILTER_ARROW_IMG"
+                android:layout_width="8dp"
+                android:layout_height="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/filter_arrow_img"/>
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/FITER_LIST"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:focusableInTouchMode="false"></ListView>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.itamgames.itamsdk">
+
+        <application
+            android:allowBackup="true"
+            android:supportsRtl="true" >
+            <activity
+                android:name="com.itamgames.itamsdk.ConnectUnityAct"
+                android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
+            </activity>
+            <activity
+                android:name=".ui.ItamSdkMainact"
+                android:theme="@style/dialog_activity_theme">
+            </activity>
+            <activity
+                android:name=".ui.buy.ItemInfoDlg"
+                android:theme="@style/dialog_activity_theme">
+            </activity>
+            <receiver android:name="com.itamgames.itamsdk.recver.ItamInappReceiver" >
+                <intent-filter>
+                    <action android:name="com.itamgames.itamapp.inapp.response"/>
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </receiver>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+</manifest>

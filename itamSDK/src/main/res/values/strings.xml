@@ -1,0 +1,50 @@
+<resources>
+    <string name="menu_trade_title_text" >거래소</string>
+    <string name="menu_inven_title_text" >내물품</string>
+    <string name="menu_resource_title_text" >EOS 자원</string>
+
+    <!--Trade shop-->
+    <string name="games_item_type_title_text">등급:</string>
+    <string name="games_item_lvl_title_text">요구레벨:</string>
+    <string name="games_item_class_title_text">클래스:</string>
+
+    <!--Trade popup-->
+    <string name="item_search_detail_opt_lv_text">물품 등급</string>
+    <string name="item_search_detail_opt_price_text">가격 설정</string>
+    <string name="trade_item_dlg_drop_text">드랍 몬스터</string>
+    <string name="trade_item_dlg_buy_text">구매</string>
+    <string name="trade_item_dlg_sell_text">판매</string>
+    <string name="trade_item_dlg_sell_user_text">판매자 계정 :</string>
+
+    <string name="item_detile_dlg_sell_text">판매개시</string>
+    <string name="item_sell_dlg_title_text">판매 등록이 완료 됐습니다.</string>
+    <string name="game_review_download_btn_text">다운받기</string>
+
+    <string name="item_buydlg_input_pass_text">비밀번호를 입력해주세요.</string>
+    <string name="item_buydlg_pass_btn">Accept</string>
+
+    <string name="item_buydlg_finger_text">지문확인을 해주세요.</string>
+
+
+    <string name="eos_stake_recv_account_text">Stake 받는 계정</string>
+    <string name="eos_unstake_recv_account_text">Unstake 받는 계정</string>
+    <string name="eos_ram_buy_title_text">RAM 구매</string>
+    <string name="eos_ram_sell_title_text">RAM 판매</string>
+    <string name="eos_ram_buy_recv_title_text">RAM 받는 계정</string>
+    <string name="eos_trans_title_text">전송</string>
+    <string name="eos_trans_recv_title_text">전송 받는 계정</string>
+    <string name="trans_possible_token_count">전송가능 수량</string>
+    <string name="trans_ram_buy_text">구매</string>
+    <string name="trans_ram_sell_text">판매</string>
+    <string name="eos_stake_cpu_opt_text"><![CDATA[Stake]]></string>
+    <string name="eos_stake_cpu_dele_text">(Delegate)</string>
+    <string name="eos_stake_cpu_trans_text">(Transfer)</string>
+    <string name="eos_ubstake_cpu_trans_text">Transfer</string>
+    <string name="eos_trans_history_text">전송기록</string>
+    <string name="eos_trans_noti_text">전송을 위해 비밀번호 확인이 필요합니다.</string>
+
+    <string name="transaction_id_text">Transaction ID</string>
+    <string name="main_idcopy_text">계정이 복사 됐습니다.</string>
+
+    <string name="button_close_text">닫기</string>
+</resources>

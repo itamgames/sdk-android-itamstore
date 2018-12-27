@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null">
+
+    <LinearLayout
+        android:id="@+id/EOS_RAM_BUY_INPUT_LL"
+        android:layout_width="match_parent"
+        android:layout_height="521dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@drawable/round_rect_white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="84dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#6035bd"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/eos_ram_buy_recv_title_text" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/round_gray_box">
+
+                <EditText
+                    android:id="@+id/EOS_RAM_BUY_RECV_ACCOUNT_EDIT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="#230f3b"
+                    android:textSize="12sp"
+                    android:hint="받는 계정"
+                    android:singleLine="true"
+                    android:gravity="right|center_vertical"
+                    android:layout_centerVertical="true"
+                    android:background="#00ffffff"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" >
+
+                <TextView
+                    android:id="@+id/EOS_RAM_LABEL_TITLE_TEXT"
+                    android:layout_width="84dp"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#6035bd"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="RAM" />
+
+                <RelativeLayout
+                    android:layout_below="@+id/EOS_RAM_LABEL_TITLE_TEXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/round_gray_box">
+
+                    <ImageView
+                        android:id="@+id/EOS_RAM_LABEL_IMG"
+                        android:layout_width="31dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/eos_label"/>
+
+
+                    <EditText
+                        android:id="@+id/EOS_RAM_BUY_EDIT"
+                        android:layout_width="210dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:paddingRight="15dp"
+                        android:textColor="#230f3b"
+                        android:textSize="14sp"
+                        android:hint="0.000"
+                        android:numeric="decimal"
+                        android:singleLine="true"
+                        android:gravity="right|center_vertical"
+                        android:layout_centerVertical="true"
+                        android:background="#00ffffff"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="9dp"
+                android:layout_height="34dp">
+
+                <TextView
+                    android:id="@+id/EOS_RAM_BUY_CAL_TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="2,930.0010 - 3.0000 = 2,927.0010"
+                    android:textColor="#999999"
+                    android:textSize="11sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/EOS_RAM_BUY_EOS_SUM_TEXT"
+                    android:layout_toRightOf="@+id/EOS_RAM_BUY_CAL_TEXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="left|center_vertical"
+                    android:text="(RAM Price : 0.1038 EOS)"
+                    android:textColor="#cccccc"
+                    android:textSize="11sp"
+                    android:textStyle="normal" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="28dp">
+                <RadioGroup
+                    android:id="@+id/EOS_RAM_BUY_RADIO_GROUP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/RAM_BUY_EOS_UNI_BTN"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:checked="true"
+                        android:text="  EOS"
+                        android:textColor="#33230a"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:button="@drawable/resource_radio_img" />
+
+                    <RadioButton
+                        android:id="@+id/RAM_BUY_KB_UNI_BTN"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="  KB"
+                        android:textColor="#33230a"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:button="@drawable/resource_radio_img" />
+
+                </RadioGroup>
+                <LinearLayout
+                    android:id="@+id/EOS_RAM_BUY_KB_LL"
+                    android:layout_width="258dp"
+                    android:layout_height="32dp"
+                    android:layout_toRightOf="@+id/EOS_RAM_BUY_RADIO_GROUP"
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerVertical="true">
+                    <Button
+                        android:id="@+id/EOS_RAM_BUY_RESET_BTN"
+                        android:layout_width="50dp"
+                        android:layout_height="28dp"
+                        android:text="RESET"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp"
+                        android:background="@drawable/graph_rect_magenta" />
+
+                    <Button
+                        android:id="@+id/EOS_RAM_BUY_1KB_BTN"
+                        android:layout_width="50dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="6dp"
+                        android:text="+ 1EOS"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp"
+                        android:background="@drawable/graph_rect_deep_purple" />
+
+                    <Button
+                        android:id="@+id/EOS_RAM_BUY_10KB_BTN"
+                        android:layout_width="50dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="6dp"
+                        android:text="+ 10EOS"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp"
+                        android:background="@drawable/graph_rect_deep_purple" />
+
+                    <Button
+                        android:id="@+id/EOS_RAM_BUY_100KB_BTN"
+                        android:layout_width="50dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="6dp"
+                        android:text="+ 100EOS"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp"
+                        android:background="@drawable/graph_rect_deep_purple" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/EOS_RAM_BUY_ACCEPT_BTN"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/trans_ram_buy_text"
+                android:background="@drawable/graph_rect_deep_purple"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
