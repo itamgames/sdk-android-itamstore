@@ -1,2 +1,2 @@
 # ItamSDK_android
-App sdk
+Android sdk
