@@ -19,7 +19,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp">
                 <TextView
                     android:id="@+id/EOS_STAKE_CPU_TITLE_TEXT"
@@ -72,7 +72,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp">
 
                 <TextView
@@ -84,27 +84,17 @@
                     android:textColor="#999999"
                     android:textSize="10sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="15dp"
-                    android:gravity="left"
-                    android:text=" / "
-                    android:textColor="#999999"
-                    android:textSize="10sp"
-                    android:textStyle="normal" />
-
-                <TextView
-                    android:id="@+id/EOS_CPU_USE_SEC_COUNT_TEXT"
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:gravity="left"
-                    android:text="1.9610 sec (15.0 EOS)"
-                    android:textColor="#999999"
-                    android:textSize="10sp"
-                    android:textStyle="normal" />
-
             </LinearLayout>
+            <TextView
+                android:id="@+id/EOS_CPU_USE_SEC_COUNT_TEXT"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginStart="20dp"
+                android:gravity="left"
+                android:text="1.9610 sec (15.0 EOS)"
+                android:textColor="#999999"
+                android:textSize="10sp"
+                android:textStyle="normal" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -168,7 +158,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp" >
+                android:layout_marginStart="20dp" >
 
                 <TextView
                     android:id="@+id/EOS_BANDWIDTH_USE_KB_COUNT_TEXT"
@@ -179,26 +169,21 @@
                     android:textColor="#999999"
                     android:textSize="10sp"
                     android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="15dp"
-                    android:gravity="left"
-                    android:text=" / "
-                    android:textColor="#999999"
-                    android:textSize="10sp"
-                    android:textStyle="normal" />
 
-                <TextView
-                    android:id="@+id/EOS_BANDWIDTH_USE_EOS_COUNT_TEXT"
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:gravity="left"
-                    android:text="9.2958 KB (0.5 EOS)"
-                    android:textColor="#999999"
-                    android:textSize="10sp"
-                    android:textStyle="normal" />
+
+
 
             </LinearLayout>
+            <TextView
+                android:id="@+id/EOS_BANDWIDTH_USE_EOS_COUNT_TEXT"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginStart="20dp"
+                android:gravity="left"
+                android:text="9.2958 KB (0.5 EOS)"
+                android:textColor="#999999"
+                android:textSize="10sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
 

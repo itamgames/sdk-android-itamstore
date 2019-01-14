@@ -1,6 +1,7 @@
 package com.itamgames.itamsdk.ui;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -58,17 +59,18 @@ public class ItamSdkPresenter extends BasePresenter  {
     ProgressBarAnimation BandProgressAni = null;
     ProgressBarAnimation RamProgressAni = null;
 
-    /* TODO 리스트가 잘 갱신이 안된다.*/
-    protected ItamSdkPresenter(Context c, Handler h) {
+    int orientation;
+
+    ItamSdkPresenter(Context c, Handler h, int orientation) {
         super(c, h);
+
+        this.orientation = orientation;
 
         userInfoStorage = new UserInfoStorage();
 
         menuView = new MenuView( con );
         tradeview = new TradeShopView( con );
-        catelistview = new CategoryListView( con );
-
-        resourceView = new EosResourceView( con );
+        resourceView = new EosResourceView( con, this.orientation  );
 
         eosCpuStakeView = new EosCpuStakeView( con );
         eosCpuUnStakeView = new EosCpuUnStakeView( con );
@@ -76,10 +78,24 @@ public class ItamSdkPresenter extends BasePresenter  {
         eosRamSellView = new EosRamSellView( con );
 
         itemList = new ArrayList<>();
-        cateliststring = new ArrayList<>();
 
-        menuView.setOnClickListener( this );
+        catelistview = new CategoryListView( con, orientation );
+
+        if( orientation == Configuration.ORIENTATION_LANDSCAPE ){
+
+            cateliststring = new ArrayList<>();
+
+            for( int i = 0; i < tmpcatelist.length; i++ ){
+
+                cateliststring.add( tmpcatelist[i]  );
+            }
+            cateAdapter = new CateGoryListAdapter( con, cateliststring, this );
+            catelistview.SetCateGoryList( cateAdapter );
+        }
+
         catelistview.setOnClickListener( this );
+        menuView.setOnClickListener( this );
+
         resourceView.setOnClickListener( this );
 
         eosCpuStakeView.setOnClickListener( this );
@@ -87,13 +103,14 @@ public class ItamSdkPresenter extends BasePresenter  {
         eosRamBuyView.setOnClickListener( this );
         eosRamSellView.setOnClickListener( this );
 
-        for( int i = 0; i < tmpcatelist.length; i++ ){
+        /*TODO 최초 EOS자원으로 설정*/
 
-            cateliststring.add( tmpcatelist[i]  );
-        }
+        VIEW_STATE = 2;
+        menuView.EnableEosResource();
+//            catelistview.HideFilter();
+//            catelistview.SetCateTitle("Resource");
+        SetResourceCategory();
 
-        cateAdapter = new CateGoryListAdapter( con, cateliststring, this );
-        catelistview.SetCateGoryList( cateAdapter );
 //        catelistview.setOnItemClickListener( this );
 //        catelistview.category_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
@@ -118,8 +135,6 @@ public class ItamSdkPresenter extends BasePresenter  {
 
     }
 
-
-
     @Override
     public void onClick(View v) {
 
@@ -127,24 +142,37 @@ public class ItamSdkPresenter extends BasePresenter  {
         if (i == R.id.TRADE_SHOP_BTN) {
             VIEW_STATE = 0;
             menuView.EnableTradeShop();
-            catelistview.ShowFilter();
-            catelistview.SetCateTitle("Category");
-            SetItemCategory();
+
+            if( orientation == Configuration.ORIENTATION_LANDSCAPE ){
+                catelistview.ShowFilter();
+                catelistview.SetCateTitle("Category");
+                SetItemCategory();
+            }else {
+                catelistview.ShowResource(false);
+            }
             messageHandler.sendEmptyMessage( 1 );
 
         } else if( i == R.id.MY_INVEN_BTN ){
             VIEW_STATE = 1;
             menuView.EnableInventory();
-            catelistview.ShowFilter();
-            catelistview.SetCateTitle("Category");
-            SetItemCategory();
+            if( orientation == Configuration.ORIENTATION_LANDSCAPE ){
+                catelistview.ShowFilter();
+                catelistview.SetCateTitle("Category");
+                SetItemCategory();
+            }else {
+                catelistview.ShowResource(false);
+            }
             messageHandler.sendEmptyMessage( 1 );
         } else if( i == R.id.EOS_RESOURCE_BTN ){
             VIEW_STATE = 2;
             menuView.EnableEosResource();
-            catelistview.HideFilter();
-            catelistview.SetCateTitle("Resource");
-            SetResourceCategory();
+            if( orientation == Configuration.ORIENTATION_LANDSCAPE ){
+                catelistview.HideFilter();
+                catelistview.SetCateTitle("Resource");
+                SetResourceCategory();
+            }else {
+                catelistview.ShowResource(true);
+            }
             messageHandler.sendEmptyMessage( 0 );
         } else if( i == R.id.CATE_FILTER_BTN ){
             if(filter_enable == true  ){
@@ -209,6 +237,18 @@ public class ItamSdkPresenter extends BasePresenter  {
             msg.what = 8;
             msg.arg1 = 4;
             messageHandler.sendMessage( msg );
+        } else if( i == R.id.CATE_CPU_TITLE_TEXT ){
+            catelistview.SetResourceText(true);
+            Message msg = new Message();
+            msg.what = 7;
+            msg.arg1 = 0;
+            messageHandler.sendMessage( msg );
+        } else if( i == R.id.CATE_RAM_TITLE_TEXT ){
+            catelistview.SetResourceText(false);
+            Message msg = new Message();
+            msg.what = 7;
+            msg.arg1 = 1;
+            messageHandler.sendMessage( msg );
         }
         else {
 
@@ -231,16 +271,16 @@ public class ItamSdkPresenter extends BasePresenter  {
     }
 
     void SetResourceCategory(){
-
-        cateliststring.clear();
-        cateAdapter.clear();
-
-        for( int i = 0; i < resourcecatelist.length; i++ ){
-
-            cateliststring.add( resourcecatelist[i]  );
-        }
-        cateAdapter.SetListdata( cateliststring );
-        catelistview.SetCateGoryList( cateAdapter );
+//
+//        cateliststring.clear();
+//        cateAdapter.clear();
+//
+//        for( int i = 0; i < resourcecatelist.length; i++ ){
+//
+//            cateliststring.add( resourcecatelist[i]  );
+//        }
+//        cateAdapter.SetListdata( cateliststring );
+//        catelistview.SetCateGoryList( cateAdapter );
     }
 
     void SetTradeShop(){
@@ -310,12 +350,15 @@ public class ItamSdkPresenter extends BasePresenter  {
 
     public void SetEosInfo(){
 
-        resourceView.SetAccountName( userInfoStorage.userAccount );
-        resourceView.SetEosCountText( userInfoStorage.eostoken );
+        if( this.orientation == Configuration.ORIENTATION_LANDSCAPE ){
+            resourceView.SetAccountName( userInfoStorage.userAccount );
+            resourceView.SetEosCountText( userInfoStorage.eostoken );
 
-        resourceView.SetEosStake( userInfoStorage.eosstake );
-        resourceView.SetEosUnStake( userInfoStorage.eosunstake );
-        resourceView.SetEosRefund(userInfoStorage.refund );
+            resourceView.SetEosStake( userInfoStorage.eosstake );
+            resourceView.SetEosUnStake( userInfoStorage.eosunstake );
+            resourceView.SetEosRefund(userInfoStorage.refund );
+        }
+
     }
 
     void SetRamResource(){
@@ -324,6 +367,10 @@ public class ItamSdkPresenter extends BasePresenter  {
 
             RamProgressAni = new ProgressBarAnimation(resourceView.getRamUsebar(), 1000);
 
+            float avernum = (this.userInfoStorage.useram / this.userInfoStorage.totalram) * 100.0f;
+            String average = String.format( "%d", (int)avernum );
+
+            resourceView.SetEosRamPersent( "(" + average +"%) " + "사용중" );
             resourceView.SetEosCpuMs( String.format( "%.4f KB", userInfoStorage.useram )  );
             resourceView.SetEosCpuSec( String.format( "%.3f KB", userInfoStorage.totalram )  );
 
@@ -331,10 +378,12 @@ public class ItamSdkPresenter extends BasePresenter  {
             RamProgressAni.setProgress( (int)userInfoStorage.useram );
 
         } else {
+
             RamProgressAni.ResetProgress();
             RamProgressAni.reset();
             RamProgressAni.setProgress( (int)userInfoStorage.useram );
             RamProgressAni.start();
+
         }
 
     }
@@ -345,38 +394,58 @@ public class ItamSdkPresenter extends BasePresenter  {
             CpuProgressAni = new ProgressBarAnimation(resourceView.getCpuUsebar(), 1000);
             BandProgressAni = new ProgressBarAnimation(resourceView.getBandbar(), 1000);
 
-            resourceView.SetEosCpuPersent( ("20 %") );
+            float cpuavernum = (this.userInfoStorage.usecpu / this.userInfoStorage.totalcpu) * 100.0f;
+            String cpuaverage = String.format( "%d", (int)cpuavernum );
+
+            resourceView.SetEosCpuPersent( "(" + cpuaverage +"% 사용중)" );
             resourceView.SetEosCpuMs( String.format( "%.2f ms", userInfoStorage.usecpu ) );
-            resourceView.SetEosCpuSec( String.format( "%.2f sec (%.4f EOS)", userInfoStorage.totalcpu, userInfoStorage.cputoeos ) );
+            float cputtmp =  userInfoStorage.totalcpu  * 0.01f;
+
+            if( orientation == Configuration.ORIENTATION_LANDSCAPE ){
+                resourceView.SetEosCpuSec(String.format( "%.4f sec ", cputtmp  ) +"\n"+ "(" + userInfoStorage.cputoeos + ")" );
+            } else {
+                resourceView.SetEosCpuSec(String.format( "%.4f sec ", cputtmp  ) + "(" + userInfoStorage.cputoeos + ")" );
+            }
+
 //
 
 //            resourceView.SetCpuProgress(  (int)userInfoStorage.totalcpu + 1 );
 //            CpuProgressAni.setProgress( (int)userInfoStorage.usecpu  + 1);
-            resourceView.SetCpuProgress(  100);
-            CpuProgressAni.setProgress( 50 );
+            resourceView.SetCpuProgress(  (int)userInfoStorage.totalcpu + 1);
+            CpuProgressAni.setProgress( (int)userInfoStorage.usecpu  + 1 );
 
 //            float bandwidthweight = userInfoStorage.cputoeos * 0.0001f;
-            resourceView.SetBandPersent( ("17 %") );
-            resourceView.SetBandMs( String.format( "%f us", userInfoStorage.useband ) );
-            resourceView.SetBandSec( String.format( "%.2f ms (%.4f EOS)", userInfoStorage.totalband, userInfoStorage.bandtoeos ) );
 
-//            resourceView.SetBandProgress( (int)userInfoStorage.totalband );
-//            BandProgressAni.setProgress( (int)userInfoStorage.useband );
-            resourceView.SetBandProgress( 100 );
-            BandProgressAni.setProgress( 80 );
+            float netavernum = userInfoStorage.useband / userInfoStorage.totalband * 100.0f;
+            String netaverage = String.format( "%d", (int)netavernum );
+
+            resourceView.SetBandPersent( "(" + netaverage +"% 사용중)" );
+            resourceView.SetBandMs( String.format( "%f KB", userInfoStorage.useband ) );
+
+            float bandttmp =  userInfoStorage.totalband  * 0.01f;
+
+            if( orientation == Configuration.ORIENTATION_LANDSCAPE ){
+                resourceView.SetBandSec( String.format( "%.2f KB ", bandttmp ) + "\n" +"(" + userInfoStorage.bandtoeos + ")" );
+            } else {
+                resourceView.SetBandSec( String.format( "%.2f KB ", bandttmp ) + "(" + userInfoStorage.bandtoeos + ")" );
+            }
+
+
+            resourceView.SetBandProgress( (int)userInfoStorage.totalband );
+            BandProgressAni.setProgress( (int)userInfoStorage.useband );
+//            resourceView.SetBandProgress( 100 );
+//            BandProgressAni.setProgress( 80 );
 
         } else {
 
             BandProgressAni.ResetProgress();
             BandProgressAni.reset();
-//            BandProgressAni.setProgress( (int)userInfoStorage.useband );
-            BandProgressAni.setProgress( 80 );
+            BandProgressAni.setProgress( (int)userInfoStorage.useband );
             BandProgressAni.start();
 
             CpuProgressAni.ResetProgress();
             CpuProgressAni.reset();
-//            BandProgressAni.setProgress( (int)userInfoStorage.useband );
-            CpuProgressAni.setProgress( 50 );
+            CpuProgressAni.setProgress( (int)userInfoStorage.usecpu );
             CpuProgressAni.start();
 
         }
@@ -392,6 +461,7 @@ public class ItamSdkPresenter extends BasePresenter  {
     }
 
     public View GetCategoryView(){
+
         return  catelistview.GetView();
     }
 

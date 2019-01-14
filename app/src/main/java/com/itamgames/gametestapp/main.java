@@ -1,10 +1,8 @@
 package com.itamgames.gametestapp;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Animatable;
@@ -21,11 +19,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.itamgames.itamsdk.ItamInitialize;
+import com.itamgames.itamsdk.ItamloginButton;
 import com.itamgames.itamsdk.ui.ItamSdkMainact;
 
 public class main extends Activity {
 
-    Button login_btn = null;
+    ItamloginButton login_btn = null;
     Button download_btn = null;
 
     Button opensdk = null;
@@ -53,13 +52,16 @@ public class main extends Activity {
 
         con = this;
 
-        login_btn = (Button)findViewById( R.id.TESTGAME_LOGIN_BTN );
+        ItamInitialize itam = new ItamInitialize( con );
+
+        login_btn = (ItamloginButton)findViewById( R.id.TESTGAME_LOGIN_BTN );
+
         shop_btn = (Button)findViewById( R.id.TEST_STORE_BTN );
 
         login_btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                gotoAuthApp();
+                login_btn.gotoAuthApp( main.this );
             }
         });
 
@@ -73,6 +75,7 @@ public class main extends Activity {
         });
 
         String version = "";
+
         try {
             PackageInfo i = getPackageManager().getPackageInfo(getPackageName(), 0);
             version = i.versionName;
@@ -125,15 +128,15 @@ public class main extends Activity {
             }
         });
 
-        ItamInitialize itam = new ItamInitialize( con );
+
 
     }
 
     void GotoTradeShop(){
         Intent i = new Intent( this, ItamSdkMainact.class );
-        i.putExtra( "accountname" , accountname );
-        i.putExtra( "publickey" , publickey );
-        i.putExtra( "itamtoken" , itamtoken );
+        i.putExtra( "accountname" , "itamnetwork2" );
+        i.putExtra( "publickey" , "EOS7WbcbgYszYK4K71C4nGohZmrNRQnKEx412GKUHTxtf5QRKBCFX" );
+        i.putExtra( "itamtoken" , "1000.0000" );
 
         startActivity(  i );
 //                Intent i = new Intent( this, TestActivity.class );
@@ -168,37 +171,37 @@ public class main extends Activity {
 
     }
 
-    void gotoAuthApp(){
-
-        ApplicationInfo appInfo = null;
-        try {
-            appInfo = getPackageManager().getApplicationInfo(this.getPackageName(), PackageManager.GET_META_DATA );
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        Bundle aBundle = appInfo.metaData;
-        String aValue = aBundle.getString("itamnetworkkey");
-
-//        Intent intent = new Intent();
-//        intent.setAction(Intent.ACTION_VIEW);
-//        intent.setData(Uri.parse("itamapp://auth?itamnetworkkey=" + aValue ) );
-//        startActivity(intent);
-
+//    void gotoAuthApp(){
 //
-        ComponentName cn = new ComponentName("com.itamgames.itamapp","com.itamgames.itamapp.ItamAuthAct");
-
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-
-        intent.putExtra("key", aValue );
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-        intent.setComponent(cn);
-
-        startActivityForResult(intent, 1);
-
-
-    }
+//        ApplicationInfo appInfo = null;
+//        try {
+//            appInfo = getPackageManager().getApplicationInfo(this.getPackageName(), PackageManager.GET_META_DATA );
+//        } catch (PackageManager.NameNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//        Bundle aBundle = appInfo.metaData;
+//        String aValue = aBundle.getString("itamnetworkkey");
+//
+////        Intent intent = new Intent();
+////        intent.setAction(Intent.ACTION_VIEW);
+////        intent.setData(Uri.parse("itamapp://auth?itamnetworkkey=" + aValue ) );
+////        startActivity(intent);
+//
+////
+//        ComponentName cn = new ComponentName("com.itamgames.itamapp","com.itamgames.itamapp.ItamAuthAct");
+//
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//
+//        intent.putExtra("key", aValue );
+//        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+//
+//        intent.setComponent(cn);
+//
+//        startActivityForResult(intent, 1);
+//
+//
+//    }
 
     private void swapAnimation(@DrawableRes int drawableResId) {
         final Drawable avd = AnimatedVectorDrawableCompat.create(this, drawableResId);

@@ -1,6 +1,10 @@
 package com.itamgames.itamsdk.ui;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidnetworking.error.ANError;
@@ -29,6 +34,8 @@ import com.itamgames.itamsdk.util.ItamInappHandler;
 import org.json.JSONObject;
 
 public class ItamSdkMainact extends BaseActivity {
+
+    RelativeLayout eos_resource_info_layout = null;
 
     RelativeLayout menu_layout = null;
     RelativeLayout category_layout = null;
@@ -52,41 +59,54 @@ public class ItamSdkMainact extends BaseActivity {
 
     int transtype = 0;
 
+    int orientation; // 현재 화면 상태
+
+    /*TODO 세로 UI 추가*/
+    TextView account_name = null;
+    TextView eoscount_text = null;
+
+    TextView eosstake_text = null;
+    TextView eosunstake_text = null;
+    TextView eosrefund_text = null;
+
+    Button copy_btn = null;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        orientation = con.getResources().getConfiguration().orientation;
 
         menu_layout = (RelativeLayout)findViewById( R.id.MENU_LAYOUT );
         category_layout = (RelativeLayout)findViewById( R.id.CATEGORY_LAYOUT );
         trade_shop_layout = (RelativeLayout)findViewById( R.id.TRADE_SHOP_LAYOUT );
 
+        eos_resource_info_layout = (RelativeLayout)findViewById( R.id.EOS_RESOUCR_INFO_LL );
+
         close_btn = (Button)findViewById( R.id.SDK_CLOSE_BTN );
 
         messageHandler = new Handler( new IncomingHandlerCallback() );
 
-        presenter = new ItamSdkPresenter( con, messageHandler );
+        presenter = new ItamSdkPresenter( con, messageHandler, this.orientation );
 
         accountInfo = new AccountInfoStorage();
         eosAccountInfoData = new EosAccountInfoData();
 
         preference = new PreferenceHelper(con );
 
-
         presenter.userInfoStorage = preference.LoadUserInfo( con );
 
-
-        Toast.makeText( con, "userInfoStorage : " + presenter.userInfoStorage.userAccount, Toast.LENGTH_SHORT).show();
-
-        Intent i = getIntent();
-
-//        accountname =  i.getStringExtra( "accountname" );
-//        publickey =  i.getStringExtra( "publickey" );
-//        itamtoken =  i.getStringExtra( "itamtoken" );
+//        Toast.makeText( con, "userInfoStorage : " + presenter.userInfoStorage.userAccount, Toast.LENGTH_SHORT).show();
 
         /*TEST*/
+        Intent i = getIntent();
+        accountname = i.getStringExtra("accountname");
+        publickey = i.getStringExtra("publickey");
+        itamtoken = i.getStringExtra("itamtoken");
+
         if( accountname == null ){
 
-            accountname = "itamgameusra";
+            accountname = "itamnetwork2";
             itamtoken = "1000.0000";
             publickey = "EOS7WbcbgYszYK4K71C4nGohZmrNRQnKEx412GKUHTxtf5QRKBCFX";
 
@@ -131,12 +151,18 @@ public class ItamSdkMainact extends BaseActivity {
 
     void Init(){
 
-        presenter.SetTradeShop();
-
         menu_layout.addView( presenter.GetMenuView() );
 
         category_layout.addView( presenter.GetCategoryView() );
-        trade_shop_layout.addView( presenter.GetTradeShopView() );
+
+        if( orientation == Configuration.ORIENTATION_LANDSCAPE ){
+            presenter.SetTradeShop();
+
+        } else {
+            SetEosResourceUI();
+        }
+
+        trade_shop_layout.addView( presenter.GetEosResourceView() );
 
     }
 
@@ -149,7 +175,17 @@ public class ItamSdkMainact extends BaseActivity {
 
                 case 0:{
 
-                    presenter.SetEosInfo();
+                    if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+                        // code for portrait mode
+                        eos_resource_info_layout.setVisibility( View.VISIBLE );
+                        SetEosInfo();
+                    } else {
+                        // code for landscape mode
+                        eos_resource_info_layout.setVisibility( View.GONE );
+                        presenter.SetItamToken( itamtoken );
+                        presenter.SetEosInfo();
+                    }
+
                     trade_shop_layout.removeAllViews();
                     trade_shop_layout.addView( presenter.GetEosResourceView() );
                     presenter.SetCpuResource();
@@ -157,6 +193,9 @@ public class ItamSdkMainact extends BaseActivity {
                 break;
 
                 case 1:{
+
+                    eos_resource_info_layout.setVisibility( View.GONE );
+
                     presenter.SetItamToken( itamtoken );
                     trade_shop_layout.removeAllViews();
                     trade_shop_layout.addView( presenter.GetTradeShopView() );
@@ -198,14 +237,14 @@ public class ItamSdkMainact extends BaseActivity {
 
                     presenter.userInfoStorage.totalcpu = EosDataCalculator.SetTotalCpu( accountInfo.Cpulimt.Max );
                     presenter.userInfoStorage.usecpu = EosDataCalculator.SetUseCpu( accountInfo.Cpulimt.Used );
-                    presenter.userInfoStorage.cputoeos = EosDataCalculator.SetUseCpu( accountInfo.CpuWeight );
+                    presenter.userInfoStorage.cputoeos = accountInfo.totalResources.CpuWeight;//EosDataCalculator.SetUseCpu( accountInfo.CpuWeight );
 
                     presenter.userInfoStorage.totalband = EosDataCalculator.SetTotalCpu( accountInfo.Netlimt.Max );
                     presenter.userInfoStorage.useband = EosDataCalculator.SetUseCpu( accountInfo.Netlimt.Used );
-                    presenter.userInfoStorage.bandtoeos = EosDataCalculator.SetUseCpu( accountInfo.NetWeight );
+                    presenter.userInfoStorage.bandtoeos = accountInfo.totalResources.NetWeight; //EosDataCalculator.SetUseCpu(  );
 
                     preference.SaveUserInfo( con, presenter.userInfoStorage );
-                    messageHandler.sendEmptyMessage( 1 );
+                    messageHandler.sendEmptyMessage( 0 );
 
                 }
                 break;
@@ -213,11 +252,14 @@ public class ItamSdkMainact extends BaseActivity {
                 case 5:{
 
                     Toast.makeText( con, "error", Toast.LENGTH_SHORT).show();
+//                    messageHandler.sendEmptyMessage( 1 );
 
                 }
                 break;
 
                 case 6:{ /*Input UI*/
+
+
 
                     trade_shop_layout.removeAllViews();
                     int idx = msg.arg1;
@@ -350,7 +392,7 @@ public class ItamSdkMainact extends BaseActivity {
 
         }
 
-
+        /*EOS Transaction 일때*/
         itamInappHandler = new ItamInappHandler(con, info, new ItamInAppListener() {
 
             @Override
@@ -361,11 +403,21 @@ public class ItamSdkMainact extends BaseActivity {
             @Override
             public void onResponseProduct(String product) {
 
+                String transid = "";
+                String resultmsg = "";
+                String memo = "";
+
                 Log.e( "famous TES" , "product : " + product  );
+
                 String result [] = product.split( "\\|");
-                String transid = result[0];
-                String resultmsg = result[1];
-                String memo = result[2];
+                if( result.length > 1 ){
+                    transid = result[0];
+                    resultmsg = result[1];
+//                    memo = result[2];
+                } else {
+                    resultmsg = result[0];
+                }
+
 
                 Log.e( "famous tEST" , "transid : " +transid );
                 Log.e( "famous tEST" , "resultmsg : " +resultmsg );
@@ -401,4 +453,37 @@ public class ItamSdkMainact extends BaseActivity {
         super.onDestroy();
 
     }
+
+    /*TODO 임시 코드 : 세로 모드 UI추가 이슈*/
+    void SetEosResourceUI() {
+
+        account_name = (TextView)findViewById( R.id.EOS_MAIN_NAME_TEXT );
+        eoscount_text = (TextView)findViewById( R.id.TRADE_SHOP_ITAM_COUNT_TEXT );
+
+        eosstake_text = (TextView)findViewById( R.id.EOS_RESOURCE_STAKE_TEXT );
+        eosunstake_text = (TextView)findViewById( R.id.EOS_RESOURCE_UNSTAKE_TEXT );
+        eosrefund_text = (TextView)findViewById( R.id.EOS_RESOURCE_REFUND_TEXT );
+
+        copy_btn = (Button)findViewById( R.id.EOS_STAKE_COPY_BTN );
+
+        copy_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager cm = (ClipboardManager) con.getSystemService(Context.CLIPBOARD_SERVICE);
+                cm.setPrimaryClip(ClipData.newPlainText("text", account_name.getText().toString() ) );
+                Toast.makeText(con, "copy account",  Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    void SetEosInfo(){
+        account_name.setText( presenter.userInfoStorage.userAccount );
+        eosstake_text.setText( presenter.userInfoStorage.eostoken );
+
+        eosstake_text.setText( presenter.userInfoStorage.eosstake );
+        eosunstake_text.setText( presenter.userInfoStorage.eosunstake );
+        eosrefund_text.setText(presenter.userInfoStorage.refund );
+    }
+
 }

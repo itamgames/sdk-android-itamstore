@@ -17,13 +17,16 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="50dp"
             android:textSize="20dp"/>
-        <Button
+
+        <com.itamgames.itamsdk.ItamloginButton
             android:id="@+id/TESTGAME_LOGIN_BTN"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="itamgames로 로그인"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:id="@+id/TEST_STORE_BTN"

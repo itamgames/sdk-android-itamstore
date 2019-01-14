@@ -22,7 +22,7 @@
                 android:id="@+id/MENU_LAYOUT"
                 android:layout_width="60dp"
                 android:layout_height="match_parent">
-
+                <include layout="@layout/menu_layout" />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/CATEGORY_LAYOUT"
@@ -30,26 +30,35 @@
                 android:layout_height="match_parent">
 
             </RelativeLayout>
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/MAIN_LAYOUT"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
-                android:background="#ffffff">
+                android:background="#ffffff"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/EOS_RESOUCR_INFO_LL"
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:visibility="gone">
+                    <include layout="@layout/eos_resource_info_layout" />
+                </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/TRADE_SHOP_LAYOUT"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="visible">
+                    android:layout_height="match_parent">
+
                 </RelativeLayout>
-            </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignParentRight="true">
+            android:layout_alignParentEnd="true">
             <Button
                 android:id="@+id/SDK_CLOSE_BTN"
                 android:layout_width="30dp"
@@ -58,13 +67,13 @@
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/close_round_rect_purple"/>
             <ImageView
                 android:layout_width="7dp"
                 android:layout_height="7dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/sdk_close_img"/>
         </RelativeLayout>

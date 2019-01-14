@@ -24,15 +24,6 @@ public class ItamInappReceiver extends BroadcastReceiver {
             Toast.makeText( context, dataString, Toast.LENGTH_SHORT ).show();
 
 
-        } else if( action.equals( "com.itamgames.itamapp.inapp.response" ) == true ) {
-
-            String result = intent.getStringExtra( "result" );
-            String msg = intent.getStringExtra( "data" );
-
-            String dataString = String.format( "inapp result : %s ",result ) + "\n" + String.format( "data : %s ",msg )  ;
-
-            Log.e( "famous TEST" , "ItamInappReceiver : " + dataString );
-            Toast.makeText( context, dataString, Toast.LENGTH_SHORT ).show();
         }
     }
 

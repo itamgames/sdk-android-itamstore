@@ -21,7 +21,7 @@
                 android:layout_height="28dp"
                 android:layout_marginTop="12dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/trade_shop_enable_img"/>
+                android:background="@drawable/trade_shop_disable_img"/>
             <TextView
                 android:id="@+id/TRADE_SHOP_TEXT"
                 android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_marginBottom="12dp"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="@string/menu_trade_title_text"
-                android:textColor="#471b6b"
+                android:textColor="#cccccc"
                 android:textSize="9sp"
                 android:textStyle="normal"/>
             
@@ -86,7 +86,7 @@
                 android:layout_height="28dp"
                 android:layout_marginTop="12dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/eos_resource_disable_img"/>
+                android:background="@drawable/eos_resource_enable_img"/>
             <TextView
                 android:id="@+id/EOS_RESOURCE_TEXT"
                 android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                 android:layout_marginBottom="12dp"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="@string/menu_resource_title_text"
-                android:textColor="#cccccc"
+                android:textColor="#471b6b"
                 android:textSize="9sp"
                 android:textStyle="normal"/>
 

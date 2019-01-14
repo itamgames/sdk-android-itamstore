@@ -12,7 +12,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="39dp"
-            android:layout_marginLeft="20dp">
+            android:layout_marginStart="20dp">
 
             <ImageView
                 android:id="@+id/TRADE_SHOP_ITAM_LABEL_IMG"
@@ -25,8 +25,8 @@
                 android:id="@+id/TRADE_SHOP_ITAM_COUNT_TEXT"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/TRADE_SHOP_ITAM_LABEL_IMG"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/TRADE_SHOP_ITAM_LABEL_IMG"
                 android:gravity="left|center_vertical"
                 android:text="0.000"
                 android:textColor="#230f3b"
@@ -36,8 +36,8 @@
             <RelativeLayout
                 android:layout_width="160dp"
                 android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
                 android:layout_centerVertical="true"
                 android:background="@drawable/search_round_gray_box">
 
@@ -48,8 +48,9 @@
                     android:textColor="#230f3b"
                     android:textSize="12sp"
                     android:focusable="true"
+                    android:inputType="text"
                     android:focusableInTouchMode="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="#00ffffff"/>
 
@@ -57,7 +58,7 @@
                     android:id="@+id/ITEM_KEYWORD_SEARCH_BTN"
                     android:layout_width="37dp"
                     android:layout_height="28dp"
-                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/category_search_img"/>
             </RelativeLayout>

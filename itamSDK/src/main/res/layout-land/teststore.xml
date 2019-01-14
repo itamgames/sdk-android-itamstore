@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="가격 : 0.001 EOS"/>
+                android:text="가격 : 0.1000 EOS"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="40dp"
                 android:gravity="center_horizontal"
-                android:text="나무100개"/>
+                android:text="test"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
-                android:text="설명 : 나무를 추가합니다."/>
+                android:text="설명 : test입니다."/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="가격 : 0.002 EOS"/>
+                android:text="가격 : 0.1000 EOS"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="40dp"
                 android:gravity="center_horizontal"
-                android:text="미네랄100개"/>
+                android:text="test"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
-                android:text="설명 : 미네랄를 추가합니다."/>
+                android:text="설명 : test입니다."/>
         </RelativeLayout>
 
     </LinearLayout>

@@ -13,12 +13,19 @@ import okhttp3.OkHttpClient;
 
 public class ItamInitialize {
 
-    public ItamInitialize(Context con ) {
+    Context context;
+
+    ItamInappReceiver receiver;
+
+    public ItamInitialize( Context con ) {
 
         IntentFilter completeFilter = new IntentFilter();
-        completeFilter.addAction("com.itamgames.itamapp.inapp.response");
 
-        con.registerReceiver( new ItamInappReceiver(), completeFilter );
+        completeFilter.addAction("com.itamgames.itamapp.inapp.response");
+        completeFilter.addAction("com.itamgames.itamapp.signdata.response");
+
+        receiver = new ItamInappReceiver();
+        con.registerReceiver( receiver , completeFilter );
 
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -30,5 +37,9 @@ public class ItamInitialize {
                 .addInterceptor(logging)
                 .build();
         AndroidNetworking.initialize(con, okHttpClient);
+    }
+
+    public void UnItamSDK(){
+        context.unregisterReceiver( receiver );
     }
 }

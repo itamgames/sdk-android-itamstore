@@ -16,12 +16,6 @@
                 android:name=".ui.buy.ItemInfoDlg"
                 android:theme="@style/dialog_activity_theme">
             </activity>
-            <receiver android:name="com.itamgames.itamsdk.recver.ItamInappReceiver" >
-                <intent-filter>
-                    <action android:name="com.itamgames.itamapp.inapp.response"/>
-                    <category android:name="android.intent.category.DEFAULT" />
-                </intent-filter>
-            </receiver>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />

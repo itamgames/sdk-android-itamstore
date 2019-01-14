@@ -64,6 +64,8 @@ public class PreferenceHelper {
             userinfo.totalband = mSp.getFloat("totalband", .0f);
             userinfo.useband = mSp.getFloat("useband", .0f);
 
+            userinfo.bandtoeos = mSp.getString("netwight", "" );;
+            userinfo.cputoeos = mSp.getString("cpuwight", "" );;
 
         }
         return userinfo;
@@ -96,6 +98,9 @@ public class PreferenceHelper {
 
             pe.putFloat( "totalband", _userinfo.totalband );
             pe.putFloat( "useband", _userinfo.useband );
+
+            pe.putString( "netwight", _userinfo.bandtoeos );
+            pe.putString( "cpuwight", _userinfo.cputoeos );
 
             pe.commit();
         }

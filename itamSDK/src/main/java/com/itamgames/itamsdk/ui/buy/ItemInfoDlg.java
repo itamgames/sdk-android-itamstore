@@ -182,7 +182,7 @@ public class ItemInfoDlg extends BaseActivity implements IAuthenticateListener  
             Bundle bundle = new Bundle();
             bundle.putString("eos" , "0.0001 EOS");
             bundle.putString("name" , "유현의 쌍검");
-            bundle.putString("account" , "itamnetwork2");
+            bundle.putString("account" , "itamgameusra");
 
             try {
                 Message msg = Message.obtain(null, 1);

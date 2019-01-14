@@ -31,9 +31,9 @@ public class TestStore extends Activity implements View.OnClickListener, ItamInA
         findViewById( R.id.TEST_ITEM_02_BTN ).setOnClickListener( this );
 
         info = new ItemInfoStorage();
-        info.title = "나무 100개";
-        info.price = "0.0001 EOS";
-        info.memo = "나무를 100개 추가하였습니다. 부자네요.^^";
+        info.title = "test";
+        info.price = "0.1000 EOS";
+        info.memo = "test입니다.";
 
         itamInappHandler = new ItamInappHandler( con,info,this);
 
@@ -44,7 +44,6 @@ public class TestStore extends Activity implements View.OnClickListener, ItamInA
 
         switch ( v.getId() ){
             case R.id.TEST_ITEM_01_BTN : {
-
 
                 itamInappHandler.StartTransationSerivce();
             }

@@ -92,13 +92,17 @@ public class ItamInappHandler  {
                 bundle.putString("account" , "itamgameusra");
 
                 try {
+
                     Message msg = Message.obtain(null, 1000);
                     msg.replyTo = mMessenger;
                     msg.obj = bundle;
                     mServiceMessenger.send(msg);
+
                 }
                 catch (RemoteException e) {
+
                 }
+
             } else if( RequestType == 1 || RequestType == 2 ){ // cpu
                 bundle.putString("account" , transInfo.sender );
                 bundle.putString("recviver" , transInfo.recver );
@@ -160,7 +164,7 @@ public class ItamInappHandler  {
                     Log.e("fasmous TEST","act : value2 "+value2);
 //                    String tmp = "";
 //                    tmp = "result : " + value2 + "\n" + "transaction id : " + value1;
-                    mListener.onResponseProduct(  value2 );
+                    mListener.onResponseProduct(  value1+ "|"+value2 );
 
                     setStopService();
                 }
@@ -169,9 +173,11 @@ public class ItamInappHandler  {
                     String value1 = msg.getData().getString("transid");
                     String value2 = msg.getData().getString("result");
                     String value3 = msg.getData().getString("memo");
+
                     Log.e("famous TEST","act : value1 "+value1);
                     Log.e("fasmous TEST","act : value2 "+value2);
                     Log.e("fasmous TEST","act : value3 "+value3);
+
 //                    String tmp = "";
 //                    tmp = "result : " + value2 + "\n" + "transaction id : " + value1;
                     mListener.onResponseProduct(  value1+"|" + value2+"|" + value3 );

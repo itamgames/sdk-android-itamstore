@@ -17,11 +17,11 @@ public class UserInfoStorage {
 
     public float totalcpu = .0f;
     public float usecpu = .0f;
-    public float cputoeos = .0f;
+    public String cputoeos = "";
 
     public float totalband = .0f;
     public float useband = .0f;
-    public float bandtoeos = .0f;
+    public String bandtoeos = "";
 
 
 }

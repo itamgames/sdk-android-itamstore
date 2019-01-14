@@ -1,6 +1,8 @@
 package com.itamgames.itamsdk.ui.cate;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.Animation;
@@ -29,36 +31,82 @@ public class CategoryListView extends BaseView {
 
     TextView cate_title_text = null;
 
-    public CategoryListView(Context context) {
+    /*TODO 세로 모드일때만*/
+    TextView cpu_text, ram_text;
+
+    int orientation;
+
+    public CategoryListView(Context context, int orientation ) {
 
         super(context, R.layout.category_layout );
 
-        filter_ll = (LinearLayout)main_view.findViewById( R.id.CATE_FILTER_LL );
+        this.orientation = orientation;
 
-        filter_list = (ListView)main_view.findViewById( R.id.FITER_LIST );
-        category_list = (ListView)main_view.findViewById( R.id.CATE_LIST );
+        if( this.orientation == Configuration.ORIENTATION_LANDSCAPE ){
 
-        filter_btn = (ImageButton)main_view.findViewById( R.id.CATE_FILTER_BTN );
+            filter_ll = (LinearLayout)main_view.findViewById( R.id.CATE_FILTER_LL );
 
-        arrow_img = (ImageView)main_view.findViewById( R.id.FILTER_ARROW_IMG );
+            filter_list = (ListView)main_view.findViewById( R.id.FITER_LIST );
+            category_list = (ListView)main_view.findViewById( R.id.CATE_LIST );
 
-        cate_title_text = (TextView)main_view.findViewById( R.id.CATE_LIST_TITLE_TEXT );
+            filter_btn = (ImageButton)main_view.findViewById( R.id.CATE_FILTER_BTN );
 
-        filter_ll.setY( 700 );
+            arrow_img = (ImageView)main_view.findViewById( R.id.FILTER_ARROW_IMG );
+
+            cate_title_text = (TextView)main_view.findViewById( R.id.CATE_LIST_TITLE_TEXT );
+
+            filter_ll.setY( 700 );
+        } else {
+            cpu_text = (TextView)main_view.findViewById( R.id.CATE_CPU_TITLE_TEXT );
+            ram_text = (TextView)main_view.findViewById( R.id.CATE_RAM_TITLE_TEXT );
+        }
 
     }
+
+    /*TODO 세로모드일때*/
+    public void SetResourceText( boolean iscpu ){
+        if( iscpu == true ){
+            cpu_text.setTextColor( Color.parseColor("#230f3b"));
+            ram_text.setTextColor( Color.parseColor("#cccccc"));
+        } else {
+            cpu_text.setTextColor( Color.parseColor("#cccccc"));
+            ram_text.setTextColor( Color.parseColor("#230f3b"));
+        }
+
+    }
+    /*TODO 세로모드일때*/
+    public void ShowResource( boolean show ){
+
+        if( show == true ){
+            cpu_text.setVisibility( View.VISIBLE );
+            ram_text.setVisibility( View.VISIBLE );
+        } else {
+            cpu_text.setVisibility( View.GONE );
+            ram_text.setVisibility( View.GONE );
+        }
+    }
+
 
     @Override
     public void setOnClickListener(@Nullable View.OnClickListener l) {
         super.setOnClickListener(l);
 
-        filter_btn.setOnClickListener( l );
+        if( this.orientation == Configuration.ORIENTATION_LANDSCAPE ){
+            filter_btn.setOnClickListener( l );
+        } else {
+            cpu_text.setOnClickListener( l );
+            ram_text.setOnClickListener( l );
+        }
+
 
     }
     public void setOnItemClickListener( AdapterView.OnItemClickListener l) {
 
-        category_list.setOnItemClickListener( l );
-        filter_list.setOnItemClickListener( l );
+        if( this.orientation == Configuration.ORIENTATION_LANDSCAPE ){
+            category_list.setOnItemClickListener( l );
+            filter_list.setOnItemClickListener( l );
+        }
+
 
     }
 

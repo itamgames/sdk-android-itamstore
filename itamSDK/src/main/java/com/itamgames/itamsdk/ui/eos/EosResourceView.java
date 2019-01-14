@@ -3,6 +3,7 @@ package com.itamgames.itamsdk.ui.eos;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
@@ -53,29 +54,37 @@ public class EosResourceView extends BaseView {
     Button ram_buy_btn = null;
     Button ram_sell_btn = null;
 
-    public EosResourceView(Context context ) {
+    int orientation = 0;
+
+    public EosResourceView(Context context, int orientation ) {
         super(context, R.layout.eos_resource_layout );
+
+        this.orientation = orientation;
 
         cpu_ll = (RelativeLayout)main_view.findViewById( R.id.EOS_CPU_LL );
         ram_ll = (RelativeLayout)main_view.findViewById( R.id.EOS_RAM_LL );
 
-        account_name = (TextView)main_view.findViewById( R.id.EOS_MAIN_NAME_TEXT );
-        eoscount_text = (TextView)main_view.findViewById( R.id.TRADE_SHOP_ITAM_COUNT_TEXT );
+        /*TODO 세로 모드 임시 작업 */
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE ) {
 
-        eosstake_text = (TextView)main_view.findViewById( R.id.EOS_RESOURCE_STAKE_TEXT );
-        eosunstake_text = (TextView)main_view.findViewById( R.id.EOS_RESOURCE_UNSTAKE_TEXT );
-        eosrefund_text = (TextView)main_view.findViewById( R.id.EOS_RESOURCE_REFUND_TEXT );
+            account_name = (TextView)main_view.findViewById( R.id.EOS_MAIN_NAME_TEXT );
+            eoscount_text = (TextView)main_view.findViewById( R.id.TRADE_SHOP_ITAM_COUNT_TEXT );
 
-        copy_btn = (Button)main_view.findViewById( R.id.EOS_STAKE_COPY_BTN );
+            eosstake_text = (TextView)main_view.findViewById( R.id.EOS_RESOURCE_STAKE_TEXT );
+            eosunstake_text = (TextView)main_view.findViewById( R.id.EOS_RESOURCE_UNSTAKE_TEXT );
+            eosrefund_text = (TextView)main_view.findViewById( R.id.EOS_RESOURCE_REFUND_TEXT );
 
-        copy_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ClipboardManager cm = (ClipboardManager) con.getSystemService(Context.CLIPBOARD_SERVICE);
-                cm.setPrimaryClip(ClipData.newPlainText("text", account_name.getText().toString() ) );
-                Toast.makeText(con, "copy account",  Toast.LENGTH_SHORT).show();
-            }
-        });
+            copy_btn = (Button)main_view.findViewById( R.id.EOS_STAKE_COPY_BTN );
+
+            copy_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClipboardManager cm = (ClipboardManager) con.getSystemService(Context.CLIPBOARD_SERVICE);
+                    cm.setPrimaryClip(ClipData.newPlainText("text", account_name.getText().toString() ) );
+                    Toast.makeText(con, "copy account",  Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
         /*EOS Cpu UI*/
         cpu_persent_text = (TextView)main_view.findViewById( R.id.EOS_CPU_USE_PERSENT_TEXT );

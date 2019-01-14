@@ -9,7 +9,8 @@ import org.json.JSONObject;
 
 public class RpcRequest extends EosApi {
 
-    public static final String BaseURL = "https://api-kylin.eosasia.one/";
+//    public static final String BaseURL = "https://api-kylin.eosasia.one/";
+    public static final String BaseURL = "https://api.eoslaomao.com/";
 
     static public void Accountinfo( String _acccountname, JSONObjectRequestListener listener ){
         JSONObject jsonParam = new JSONObject();

@@ -1,12 +1,15 @@
 package com.itamgames.itamsdk;
 
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.itamgames.itamsdk.data.ItemInfoStorage;
-import com.itamgames.itamsdk.ui.base.ItamInAppListener;
 import com.itamgames.itamsdk.util.ItamInappHandler;
 import com.unity3d.player.UnityPlayer;
 import com.unity3d.player.UnityPlayerActivity;
@@ -66,34 +69,55 @@ public class ConnectUnityAct extends UnityPlayerActivity {
         info.memo = detail;
         info.productid = productid;
 
-        itamInappHandler = new ItamInappHandler(c, info, new ItamInAppListener() {
-            @Override
-            public void onAuthApplicataion(String authResult) {
+        Intent intent = new Intent();
+        ComponentName cn = new ComponentName("com.itamgames.itamapp", "com.itamgames.itamapp.service.InAppService");
+        intent.setComponent( cn );
+        c.startService( intent );
 
+        IntentFilter completeFilter = new IntentFilter();
+        completeFilter.addAction("com.itamgames.itamapp.inapp.response");
+
+        c.registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                Log.e( "famous TEST" , "UICharacterShop(Clone)"  );
+                Toast.makeText(c, "onResponseProduct " + "UICharacterShop", Toast.LENGTH_SHORT ).show();
+                UnityPlayer.UnitySendMessage("UICharacterShop(Clone)","onResponseProduct", info.productid  );
             }
 
-            @Override
-            public void onResponseProduct(String product) {
-                // 오마르 0
-                // 찰스 1
-                // 60센트 2
-//                Toast.makeText(c, "onResponseProduct " + product, Toast.LENGTH_SHORT ).show();
-                if( product.matches( "success" )){
-                    UnityPlayer.UnitySendMessage("UICharacterShop(Clone)","onResponseProduct", info.productid  );
-                } else {
-//                    Toast.makeText(c, "결제 실패" + product, Toast.LENGTH_SHORT ).show();
-                }
+        }, completeFilter);
 
-            }
+//        c.intent.setComponent(cn);
 
-            @Override
-            public void onResponsePayment(String result) {
 
-            }
-        });
-
-        itamInappHandler.StartTransationSerivce();
-
+//        itamInappHandler = new ItamInappHandler(c, info, new ItamInAppListener() {
+//            @Override
+//            public void onAuthApplicataion(String authResult) {
+//
+//            }
+//
+//            @Override
+//            public void onResponseProduct(String product) {
+//                // 오마르 0
+//                // 찰스 1
+//                // 60센트 2
+////                Toast.makeText(c, "onResponseProduct " + product, Toast.LENGTH_SHORT ).show();
+//                if( product.matches( "success" )){
+//                    UnityPlayer.UnitySendMessage("UICharacterShop(Clone)","onResponseProduct", info.productid  );
+//                } else {
+////                    Toast.makeText(c, "결제 실패" + product, Toast.LENGTH_SHORT ).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onResponsePayment(String result) {
+//
+//            }
+//        });
+//
+//        itamInappHandler.StartTransationSerivce();
     }
 
 }
